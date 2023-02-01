@@ -9,16 +9,17 @@
 Console.WriteLine("Введите размер массива: ");
 int size = Convert.ToInt32(Console.ReadLine());
 int[] numbers = new int[size];
+
 FillArrayRandomNumbers(numbers);
-Console.WriteLine("Наш массив: ");
 PrintArray(numbers);
-int sum = 0;
 
-for (int i = 0; i < numbers.Length; i += 2)
-    sum = sum + numbers[i];
-
-Console.WriteLine($"Всего {numbers.Length} чисел, сумма элементов на нечётных позициях = {sum}");
-
+int GetSummOddElements(int[] mass)
+{
+    int sum = 0;
+    for (int i = 0; i < mass.Length; i += 2)
+        sum = sum + mass[i];
+    return sum;
+}
 void FillArrayRandomNumbers(int[] numbers)
 {
     for (int i = 0; i < numbers.Length; i++)
@@ -28,6 +29,7 @@ void FillArrayRandomNumbers(int[] numbers)
 }
 void PrintArray(int[] numbers)
 {
+    Console.WriteLine("Наш массив: ");
     Console.Write("[ ");
     for (int i = 0; i < numbers.Length; i++)
     {
@@ -35,4 +37,5 @@ void PrintArray(int[] numbers)
     }
     Console.Write("]");
     Console.WriteLine();
+    Console.WriteLine($"Всего {numbers.Length} чисел, сумма элементов на нечётных позициях = {GetSummOddElements(numbers)}");
 }
