@@ -11,8 +11,9 @@ int[] numbers = new int[size];
 FillArrayRandomNumbers(numbers);
 Console.WriteLine("Наш массив: ");
 PrintArray(numbers);
-int min = Int32.MaxValue;
-int max = Int32.MinValue;
+
+int max = numbers[0];
+int min = numbers[0];
 
 for (int i = 0; i < numbers.Length; i++)
 {
@@ -29,19 +30,19 @@ for (int i = 0; i < numbers.Length; i++)
 Console.WriteLine($"Всего {numbers.Length} чисел. Максимальное значение = {max}, минимальное значение = {min}");
 Console.WriteLine($"Разница между максимальным и минимальным значением = {max - min}");
 
-void FillArrayRandomNumbers(int[] numbers)
+void FillArrayRandomNumbers(int[] array)
 {
-    for (int i = 0; i < numbers.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        numbers[i] = new Random().Next(1, 100);
+        array[i] = new Random().Next(1, 100);
     }
 }
-void PrintArray(int[] numbers)
+void PrintArray(int[] array)
 {
     Console.Write("[ ");
-    for (int i = 0; i < numbers.Length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(numbers[i] + " ");
+        Console.Write(array[i] + " ");
     }
     Console.Write("]");
     Console.WriteLine();
