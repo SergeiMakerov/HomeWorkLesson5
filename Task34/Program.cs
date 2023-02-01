@@ -9,16 +9,21 @@
 Console.WriteLine("Введите размер массива: ");
 int size = Convert.ToInt32(Console.ReadLine());
 int[] numbers = new int[size];
+
 FillArrayRandomNumbers(numbers);
-Console.WriteLine("Наш массив: ");
 PrintArray(numbers);
-int count = 0;
 
-for (int i = 0; i < numbers.Length; i++)
-    if (numbers[i] % 2 == 0)
-        count++;
 
-Console.WriteLine($"Всего {numbers.Length} числа, {count} из них чётные");
+int CountOfEvenNum(int[] mass)
+{
+    int count = 0;
+    for (int i = 0; i < mass.Length; i++)
+        if (mass[i] % 2 == 0)
+        {
+            count++;
+        }
+    return count;
+}
 
 void FillArrayRandomNumbers(int[] numbers)
 {
@@ -29,6 +34,7 @@ void FillArrayRandomNumbers(int[] numbers)
 }
 void PrintArray(int[] numbers)
 {
+    Console.WriteLine("Наш массив: ");
     Console.Write("[ ");
     for (int i = 0; i < numbers.Length; i++)
     {
@@ -36,4 +42,5 @@ void PrintArray(int[] numbers)
     }
     Console.Write("]");
     Console.WriteLine();
+    Console.WriteLine($"Всего {numbers.Length} числа, {CountOfEvenNum(numbers)} из них чётные");
 }
