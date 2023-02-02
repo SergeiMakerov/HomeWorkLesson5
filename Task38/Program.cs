@@ -14,21 +14,9 @@ PrintArray(numbers);
 
 int GetDifference(int[] mass)
 {
-    int max = Int32.MinValue;
-    int min = Int32.MaxValue;
+    Array.Sort(mass);
 
-    for (int i = 0; i < mass.Length; i++)
-    {
-        if (mass[i] > max)
-        {
-            max = numbers[i];
-        }
-        if (mass[i] < min)
-        {
-            min = numbers[i];
-        }
-    }
-    return max - min;
+    return mass[mass.Length - 1] - mass[0];
 }
 
 void FillArrayRandomNumbers(int[] array)
